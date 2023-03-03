@@ -3,7 +3,7 @@ A script that searches a directory and all its contents for a specific string, a
 This repository also includes a built in test command
 
 Replace Script:
-  To use the replace script call: replace \<path> \<old pattern> \<new pattern> \n
+  To use the replace script call: replace \<path> \<old pattern> \<new pattern>
     This should replace all occurences of the old pattern in all files beneth the one you specified, with the new pattern.
  
 Replace Test Script:
