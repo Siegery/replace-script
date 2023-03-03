@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+
+import os
+from sys import argv
+import shutil
+
+
+fileContents = """
+// DevOps.java
+public class DevOps {
+    public DevOps() {
+    }
+}
+
+// DevOpsMain.java
+public class DevOpsMain {
+    public static void main(String[] args) {
+        DevOps dev = new DevOps();
+    }
+}
+"""
+
+def setup():
+    if os.path.exists("test"):
+        shutil.rmtree("test")
+
+    os.makedirs("test/edu/bvu/cs/")
+
+    file = open("test/edu/bvu/cs/DevOps.java", "w")
+    file.write(fileContents)
+
+    file = open("test/edu/bvu/cs/DevOpsMain.java", "w")
+    file.write(fileContents)
+
+
+
+def teardown():
+    if  os.path.exists("test"):
+        shutil.rmtree("test")
+    
+    else:
+        print("Test files do not exist. Please insert: run-test setup")
+        print("To create test directory")
+
+
+
+command = argv[1]
+
+if command == "setup":
+    setup()
+
+elif command == "teardown":
+    teardown()
+
+else:
+    print("Improper input. Please use either: ")
+    print("run-test setup")
+    print(" -To remove test enviorment")
+    print("Or Use: ")
+    print("run-test teardown")
+    print("   -To remove test enviorment")
